@@ -23,7 +23,6 @@ jobs:
 
       - name: Run tests
         run: |
-          cd cuboid 
-          python -m http.server 8000 &
-          cd ..
+          cd playwright-ch-19-ci-cd-cube/cuboid 
+          python -m http.server 8000 
           pytest -sv ./cuboid/
