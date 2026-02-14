@@ -1,6 +1,6 @@
 name: play-test
 on:
-  - push:
+  - push
 
 jobs:
   test:
