@@ -1,0 +1,29 @@
+name: play-test
+on:
+  - push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: install depencies
+        run:|
+          python -m pip install --upgrade pip
+          pip install pytest-playwright
+
+      - name: Ensure browser installed
+        run: python -m playwright install chromium --with-deps
+
+      - name: Run tests
+        run: |
+          cd cuboid 
+          python -m http.server 8000 &
+          cd ..
+          pytest -sv ./cuboid/
