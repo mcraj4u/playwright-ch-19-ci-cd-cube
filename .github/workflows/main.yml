@@ -25,4 +25,4 @@ jobs:
         run: |
           cd playwright-ch-19-ci-cd-cube/cuboid 
           python -m http.server 8000 
-          pytest -sv ./cuboid/
+          pytest -sv ./
